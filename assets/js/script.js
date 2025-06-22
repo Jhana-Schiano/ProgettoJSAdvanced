@@ -8,4 +8,11 @@
 
 //buona struttura del progetto
 
-//webpack 
+//webpack
+
+console.log("File script.js - import del modulo api.js");
+
+import * as api from "./api.js";
+
+
+

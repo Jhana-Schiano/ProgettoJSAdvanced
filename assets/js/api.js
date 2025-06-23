@@ -1,6 +1,5 @@
 import axios from "axios";
 
-
 const API_URL = process.env.API_URL;
 
 async function getBooksByCategory(category) {
@@ -34,7 +33,6 @@ async function getBookDetails(bookId) {
     return null;
   }
 }
-
 
 
 let bookExampleId = "";

@@ -9,11 +9,12 @@
 <body>
     <div class="search-container">
         <h1>Cerca libri per categoria</h1>
-        <input type="text" id="categoria" class="search-box" placeholder="Es. fantasy, giallo, storia...">
-        <button id="searchButton">Cerca</button>
+        <form id="formCategoria">
+            <input type="text" id="cercaCategoria" class="search-box" placeholder="Es. fantasy, giallo, storia...">
+            <button id="searchButton" type="submit">Cerca</button>
+        </form>
     </div>
     <div id="risultatiRicerca"></div>
-
     <script src="dist/bundle.js"></script>
 </body>
 </html>

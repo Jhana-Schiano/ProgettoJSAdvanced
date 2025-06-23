@@ -2,16 +2,17 @@ import axios from "axios";
 
 const API_URL = process.env.API_URL;
 
-async function getBooksByCategory(category) {
+export async function getBooksByCategory(categoria) {
   try {
     const response = await axios.get(
-      `${API_URL}/subjects/${category}.json?limit=10`
+      `${API_URL}/subjects/${categoria}.json?limit=10`
     );
-     const books = response.data.works.map((book) => ({
+     const libri = response.data.works.map((book) => ({
       id: book.key,
-      title: book.title,
+      titolo: book.title,
+      autore: book.author,
     }));
-    return books;
+    return libri;
   } catch (error) {
     console.error("Errore durante la chiamata API:", error);
     return [];
@@ -19,13 +20,13 @@ async function getBooksByCategory(category) {
 }
 
 
-async function getBookDetails(bookId) {
+export async function getBookDetails(bookId) {
   try {
     const response = await axios.get(`${API_URL}${bookId}.json`);
     const bookDetails = {
       id: response.data.key,
-      title: response.data.title,
-      description: response.data.description,
+      titolo: response.data.title,
+      descrizione: response.data.description,
     };
     return bookDetails;
   } catch (error) {
@@ -35,16 +36,16 @@ async function getBookDetails(bookId) {
 }
 
 
-let bookExampleId = "";
-// Esempio di utilizzo:
-await getBooksByCategory("fantasy").then((books) => {
-  console.log("Libri trovati:", books);
-  bookExampleId = books[0]?.id || "";
-  console.log("ID del primo libro:", bookExampleId);
-});
+// let bookExampleId = "";
+// // Esempio di utilizzo:
+// await getBooksByCategory("fantasy").then((libri) => {
+//   console.log("Libri trovati:", libri);
+//   bookExampleId = libri[0]?.id || "";
+//   console.log("ID del primo libro:", bookExampleId);
+// });
 
 
-await getBookDetails(bookExampleId).then((details) => {
-  console.log("Dettagli del libro:", details);
-});
+// await getBookDetails(bookExampleId).then((details) => {
+//   console.log("Dettagli del libro:", details);
+// });
 

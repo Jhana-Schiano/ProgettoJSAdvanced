@@ -1,5 +1,6 @@
 body {
-  background: #f8fafc;
+  background: #181a20;
+  color: #e3e3e3;
   font-family: 'Segoe UI', Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -21,17 +22,19 @@ body {
 .search-box {
   width: 350px;
   padding: 12px 18px;
-  border: 1px solid #dfe1e5;
+  border: 1px solid #333a47;
   border-radius: 24px;
   font-size: 18px;
   outline: none;
-  transition: box-shadow 0.2s;
-  box-shadow: 0 2px 4px rgba(60,64,67,.08);
+  background: #23262f;
+  color: #e3e3e3;
+  transition: box-shadow 0.2s, border-color 0.2s;
+  box-shadow: 0 2px 4px rgba(20,20,20,.18);
   margin-bottom: 16px;
 }
 
 .search-box:focus {
-  box-shadow: 0 1px 6px rgba(32,33,36,.28);
+  box-shadow: 0 1px 6px rgba(66,133,244,.28);
   border-color: #4285f4;
 }
 
@@ -50,12 +53,57 @@ body {
   background: #357ae8;
 }
 
-#results {
+#results, #risultatiRicerca {
   max-width: 600px;
   margin: 40px auto 0 auto;
-  background: #fff;
+  background: #23262f;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(60,64,67,.08);
+  box-shadow: 0 2px 8px rgba(20,20,20,.18);
   padding: 24px;
   min-height: 40px;
+  color: #e3e3e3;
+}
+
+.libro {
+  background: #23262f;
+  border: 1px solid #333a47;
+  border-radius: 10px;
+  margin-bottom: 18px;
+  padding: 16px;
+  color: #e3e3e3;
+  display: flex;
+  flex-direction: column;
+}
+
+.libro h2 {
+  color: #4285f4;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.libro p {
+  color: #bfc7d5;
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.dettagliButton {
+  margin-top: 10px;
+  padding: 8px 20px;
+  border: 1px solid #4285f4;
+  border-radius: 20px;
+  background: none;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  max-width: 18%;
+  align-self: flex-end;
+}
+
+.dettagliButton:hover {
+  background: #357ae8;
+  color: #eff5ff;
+  box-shadow: 0 1px 4px #4285f4;
 }

@@ -54,7 +54,7 @@ body {
 }
 
 #results, #risultatiRicerca {
-  max-width: 600px;
+  max-width: 800px;
   margin: 40px auto 0 auto;
   background: #23262f;
   border-radius: 12px;
@@ -75,11 +75,13 @@ body {
   flex-direction: column;
 }
 
-.libro h2 {
+.titoloLibro {
   color: #4285f4;
   font-size: 1.3rem;
   font-weight: 600;
   margin-bottom: 8px;
+  cursor: pointer;
+  align-self: flex-start;
 }
 
 .libro p {
@@ -106,4 +108,71 @@ body {
   background: #357ae8;
   color: #eff5ff;
   box-shadow: 0 1px 4px #4285f4;
+}
+
+.dettaglio-libro {
+
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(24,26,32,0.85);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dettaglio-content {
+  background: #23262f;
+  color: #e3e3e3;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+  padding: 32px 28px 24px 28px;
+  min-width: 320px;
+  max-width: 600px;
+  max-height: 50vh;
+  overflow-y: auto;
+  position: relative;
+  text-align: left;
+}
+
+.close-dettaglio {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  font-size: 2rem;
+  color: #bfc7d5;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.close-dettaglio:hover {
+  color: #4285f4;
+}
+
+.dettaglio-content h2 {
+  color: #4285f4;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.dettaglio-content p {
+  margin-bottom: 10px;
+  color: #bfc7d5;
+}
+
+.dettaglio-content::-webkit-scrollbar {
+  width: 10px;
+  background: #23262f;
+}
+.dettaglio-content::-webkit-scrollbar-thumb {
+  background: #333a47;
+  border-radius: 8px;
+  border: 2px solid #23262f;
+}
+.dettaglio-content::-webkit-scrollbar-thumb:hover {
+  background: #4285f4;
+}
+
+.dettaglio-content {
+  scrollbar-width: thin;
+  scrollbar-color: #333a47 #23262f;
 }

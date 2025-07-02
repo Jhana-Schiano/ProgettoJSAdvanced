@@ -176,3 +176,18 @@ body {
   scrollbar-width: thin;
   scrollbar-color: #333a47 #23262f;
 }
+
+
+.caricaAltriBtn{
+  display: block;
+  width: 200px;
+  margin: 20px auto;
+  padding: 10px;
+  background-color: #4285f4;
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}

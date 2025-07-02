@@ -2,10 +2,10 @@ import axios from "axios";
 
 const API_URL = process.env.API_URL;
 
-export async function getBooksByCategory(categoria) {
+export async function getBooksByCategory(categoria, offset = 0, limit = 10) {
   try {
     const response = await axios.get(
-      `${API_URL}/subjects/${categoria}.json?fields=*,availability&limit=10`
+      `${API_URL}/subjects/${categoria}.json?fields=*,availability&limit=${limit}&offset=${offset}`
     );
     const libri = response.data.works.map((book) => ({
       id: book.key,
@@ -15,10 +15,11 @@ export async function getBooksByCategory(categoria) {
           ? book.authors.map((a) => a.name).join(", ")
           : "Sconosciuto",
     }));
-    return libri;
+    // Ritorna anche il numero totale di libri trovati
+    return { libri, totale: response.data.work_count };
   } catch (error) {
     console.error("Errore durante la chiamata API:", error);
-    return [];
+    return { libri: [], totale: 0 };
   }
 }
 
@@ -33,9 +34,8 @@ export async function getBookDetails(bookId) {
         response.data.authors && response.data.authors.length > 0
           ? await Promise.all(
               response.data.authors.map(async (a) => {
-                // Se l'autore è un oggetto con un campo 'author', prendi il nome
                 if (a.author && a.author.key) {
-                  // Recupera il nome dell'autore tramite ulteriore chiamata API
+                  // Recupera il nome dell'autore tramite il suo id con una chiamata API
                   try {
                     const authorRes = await axios.get(
                       `${API_URL}${a.author.key}.json`
@@ -56,15 +56,3 @@ export async function getBookDetails(bookId) {
     return null;
   }
 }
-
-// let bookExampleId = "";
-// // Esempio di utilizzo:
-// await getBooksByCategory("fantasy").then((libri) => {
-//   console.log("Libri trovati:", libri);
-//   bookExampleId = libri[0]?.id || "";
-//   console.log("ID del primo libro:", bookExampleId);
-// });
-
-// await getBookDetails(bookExampleId).then((details) => {
-//   console.log("Dettagli del libro:", details);
-// });

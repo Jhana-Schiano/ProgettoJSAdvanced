@@ -6,6 +6,7 @@ body {
   padding: 0;
 }
 
+/* Stile per il contenitore di ricerca: titolo, barra della ricerca e bottone ricerca */
 .search-container {
   display: flex;
   flex-direction: column;
@@ -53,6 +54,7 @@ body {
   background: #357ae8;
 }
 
+/* Stile per il contenitore dei risultati della ricerca*/
 #results, #risultatiRicerca {
   max-width: 800px;
   margin: 40px auto 0 auto;
@@ -110,6 +112,7 @@ body {
   box-shadow: 0 1px 4px #4285f4;
 }
 
+/* Stile per la modale di dettaglio del libro*/
 .dettaglio-libro {
 
   position: fixed;
@@ -177,7 +180,7 @@ body {
   scrollbar-color: #333a47 #23262f;
 }
 
-
+/* Stile per il bottone cerca altri*/
 .caricaAltriBtn{
   display: block;
   width: 200px;

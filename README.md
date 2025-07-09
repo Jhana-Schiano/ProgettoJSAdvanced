@@ -2,7 +2,7 @@
 
 Owly è una web app che permette di cercare libri per categoria tramite le API di Open Library. 
 
-### [Clicca qui](https://esempio.com) per provarla!
+### [Clicca qui](https://progetto-owly.netlify.app/) per provarla!
 
 ## Funzionalità
 
